@@ -1,7 +1,6 @@
 barCode
 ======
 
-GenBarCode Project
 
 Support Format
 ==
