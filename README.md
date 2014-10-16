@@ -1,7 +1,10 @@
+barCode
+======
+
 GenBarCode Project
 
 Support Format
-
+==
 UPCA<br/>
 EAN-8<br/>
 EAN-13 <br/>
@@ -11,7 +14,7 @@ ITF<br/>
 Codabar<br/>
 
 Not Support Format
-
+==
 UPCE<br/>
 Code 93<br/>
 RSS-14<br/>
