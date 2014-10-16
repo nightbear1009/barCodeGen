@@ -1,0 +1,113 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MyActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".MyActivity">
+
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:id="@+id/UPCA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UPCA" />
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/UPCE"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="UPCE" />-->
+
+            <RadioButton
+                android:id="@+id/EAN8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EAN-8" />
+
+            <RadioButton
+                android:id="@+id/EAN13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EAN-13" />
+
+            <RadioButton
+                android:id="@+id/Code39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code 39" />
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/Code93"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Code 93" />-->
+
+            <RadioButton
+                android:id="@+id/Code128"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Code 128" />
+
+            <RadioButton
+                android:id="@+id/ITF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ITF" />
+
+            <RadioButton
+                android:id="@+id/Codabar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Codabar" />
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/RSS14"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="RSS-14" />-->
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:text="Gen BarCode" />
+
+        <TextView
+            android:id="@+id/textview"
+            android:background="#eebbaa"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radiogroup" />
+
+        <ImageView
+            android:id="@+id/imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview" />
+
+    </RelativeLayout>
+
+</ScrollView>
