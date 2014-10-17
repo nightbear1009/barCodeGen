@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 
@@ -20,15 +22,23 @@ public class MyActivity extends Activity {
 
     private BarcodeFormat type;
     private String input;
+    private String EditTextInput="";
+    private EditText edittext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+        edittext = ((EditText)findViewById(R.id.input));
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Ted","type "+type);
-               new GenBarCodeAsyncTask((int)converdptopx(400),(int)converdptopx(400),type).execute(input);
+                Log.d("Ted","is empty "+edittext.getText().toString().isEmpty());
+                if(edittext.getText().toString().isEmpty()){
+                    new GenBarCodeAsyncTask((int)converdptopx(400),(int)converdptopx(400),type).execute(input);
+                }else{
+                    new GenBarCodeAsyncTask((int)converdptopx(400),(int)converdptopx(400),type).execute(edittext.getText().toString());
+                }
+
             }
         });
 
@@ -77,6 +87,10 @@ public class MyActivity extends Activity {
 //                        input = "0120012345678909";
 //                        break;
                 }
+
+                if(!EditTextInput.isEmpty()) {
+                    input = EditTextInput;
+                }
             }
         });
     }
@@ -100,10 +114,15 @@ public class MyActivity extends Activity {
 
     public void onEventMainThread(GenBarCodeAsyncTask.GenBarCodeEvent event){
         TextView textview = (TextView)findViewById(R.id.textview);
-        textview.setText(input);
+        textview.setText(event.input);
         ImageView imageview = (ImageView)findViewById(R.id.imageview);
         imageview.setBackground(null);
         imageview.setBackground(new BitmapDrawable(event.bitmap));
+    }
+
+    public void onEventMainThread(GenBarCodeAsyncTask.ErrorHandle event){
+        Log.d("Ted","event.mesaage"+ event.message);
+        Toast.makeText(this,event.message,Toast.LENGTH_LONG).show();
     }
 
 
